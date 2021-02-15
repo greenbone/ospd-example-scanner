@@ -20,6 +20,7 @@ Please follow the general usage guide for ospd-based scanners:
   <https://github.com/greenbone/ospd/blob/master/doc/USAGE-ospd-scanner.md>
 
 For starting the daemon
+
     ospd-wrapper -f
 
 With the gvm-cli tool, run the following command to test the ospd-wrapper template.
@@ -69,6 +70,6 @@ are active.
 
 ## License
 
-Copyright (C) 2018-2020 [Greenbone Networks GmbH](https://www.greenbone.net/)
+Copyright (C) 2018-2021 [Greenbone Networks GmbH](https://www.greenbone.net/)
 
 Licensed under the [GNU General Public License v2.0 or later](COPYING).
