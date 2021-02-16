@@ -19,9 +19,17 @@ Please follow the general usage guide for ospd-based scanners:
 
   <https://github.com/greenbone/ospd/blob/master/doc/USAGE-ospd-scanner.md>
 
-For starting the daemon
+For starting the daemon with the default options
 
     ospd-wrapper -f
+
+or you can copy the example configuration file in doc/ospd.conf and run 
+   
+    ospd-wrapper -c <path-to-file>/ospd.conf
+
+The wrapper template uploads a single VT as example
+
+    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-wrapper.sock --xml "<get_vts/>"
 
 With the gvm-cli tool, run the following command to test the ospd-wrapper template.
 
