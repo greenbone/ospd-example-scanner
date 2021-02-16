@@ -82,6 +82,24 @@ class OSPDwrapper(OSPDaemon):
         for name, param in OSPD_PARAMS.items():
             self.set_scanner_param(name, param)
 
+        if not self.vts_version:
+            self.load_vts()
+            self.set_vts_version("1.2.3dev1")
+
+    def load_vts(self):
+        """ Load up the vts. It uses the internal ospd storage. """
+        self.add_vt(
+            vt_id="1234-5678",
+            name="Vulnerability Test 1",
+            vt_creation_time="Today",
+        )
+
+    @staticmethod
+    def get_creation_time_vt_as_xml_str(  # pylint: disable=unused-argument
+        vt_id: str, vt_creation_time
+    ) -> str:
+        return '<vt_creation_time>' + vt_creation_time + '</vt_creation_time>'
+
     def scheduler(self):
         """This method is called periodically to run tasks."""
         pass
