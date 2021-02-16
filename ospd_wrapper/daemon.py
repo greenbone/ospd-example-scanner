@@ -95,9 +95,8 @@ class OSPDwrapper(OSPDaemon):
         )
 
     @staticmethod
-    def get_creation_time_vt_as_xml_str(  # pylint: disable=unused-argument
-        vt_id: str, vt_creation_time
-    ) -> str:
+    def get_creation_time_vt_as_xml_str(vt_id: str, vt_creation_time) -> str:
+        """ This is an example how to return the vts subelements. """
         return '<vt_creation_time>' + vt_creation_time + '</vt_creation_time>'
 
     def scheduler(self):
