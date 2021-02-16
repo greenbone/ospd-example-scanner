@@ -1,8 +1,8 @@
 ![Greenbone Logo](https://www.greenbone.net/wp-content/uploads/gb_logo_resilience_horizontal.png)
 
-# ospd-wrapper-template
+# ospd-example-scanner
 
-This is an OSP wrapper template useful as start point for writting an OSP server implementation
+This is an OSP example scanner useful as a starting point for writing an OSP server implementation
 
 ## Installation
 
@@ -21,25 +21,25 @@ Please follow the general usage guide for ospd-based scanners:
 
 For starting the daemon with the default options
 
-    ospd-wrapper -f
+    ospd-example-scanner -f
 
 or you can copy the example configuration file in doc/ospd.conf and run 
    
-    ospd-wrapper -c <path-to-file>/ospd.conf
+    ospd-example-scanner -c <path-to-file>/ospd.conf
 
-The wrapper template uploads a single VT as example
+The ospd-example-scanner uploads a single VT as example
 
-    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-wrapper.sock --xml "<get_vts/>"
+    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-example-scanner.sock --xml "<get_vts/>"
 
-With the gvm-cli tool, run the following command to test the ospd-wrapper template.
+With the gvm-cli tool, run the following command to test the ospd-example-scanner.
 
-    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-wrapper.sock --xml "<start_scan scan_id='829097a9-85d5-4bb8-bac0-e64c362b2836'><targets><target><hosts>192.168.0.1</hosts><exclude_hosts></exclude_hosts><finished_hosts/><ports>T:22</ports><credentials><credential port='22' service='ssh' type='up'><username>some_user</username><password>some_path</password></credential></credentials></target></targets><scanner_params></scanner_params></start_scan>"
+    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-example-scanner.sock --xml "<start_scan scan_id='829097a9-85d5-4bb8-bac0-e64c362b2836'><targets><target><hosts>192.168.0.1</hosts><exclude_hosts></exclude_hosts><finished_hosts/><ports>T:22</ports><credentials><credential port='22' service='ssh' type='up'><username>some_user</username><password>some_path</password></credential></credentials></target></targets><scanner_params></scanner_params></start_scan>"
 
-    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-wrapper.sock --xml "<stop_scan scan_id='829097a9-85d5-4bb8-bac0-e64c362b2836'/>"
+    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-example-scanner.sock --xml "<stop_scan scan_id='829097a9-85d5-4bb8-bac0-e64c362b2836'/>"
 
-    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-wrapper.sock --xml "<get_scans scan_id='829097a9-85d5-4bb8-bac0-e64c362b2836'/>"
+    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-example-scanner.sock --xml "<get_scans scan_id='829097a9-85d5-4bb8-bac0-e64c362b2836'/>"
 
-    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-wrapper.sock --xml "<delete_scan scan_id='829097a9-85d5-4bb8-bac0-e64c362b2836'/>"
+    gvm-cli --protocol OSP --timeout 120 socket --socketpath=/tmp/ospd-example-scanner.sock --xml "<delete_scan scan_id='829097a9-85d5-4bb8-bac0-e64c362b2836'/>"
 
 ## Support
 
@@ -65,11 +65,11 @@ Afterwards run
 
     poetry install
 
-in the checkout directory of ospd-wrapper-template (the directory containing the
+in the checkout directory of ospd-example-scanner (the directory containing the
 `pyproject.toml` file) to install all dependencies including the packages only
 required for development.
 
-The ospd-wrapper-temaple repository uses [autohooks](https://github.com/greenbone/autohooks)
+The ospd-example-scanner repository uses [autohooks](https://github.com/greenbone/autohooks)
 to apply linting and auto formatting via git hooks. Please ensure the git hooks
 are active.
 
@@ -80,4 +80,4 @@ are active.
 
 Copyright (C) 2018-2021 [Greenbone Networks GmbH](https://www.greenbone.net/)
 
-Licensed under the [GNU General Public License v2.0 or later](COPYING).
+Licensed under the [GNU Affero General Public License v3.0 or later](COPYING).

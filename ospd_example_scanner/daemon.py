@@ -19,7 +19,7 @@
 
 # pylint: disable=too-many-lines
 
-""" OSP wrapper template """
+""" OSP example scanner """
 
 import logging
 import time
@@ -32,13 +32,14 @@ from ospd.main import main as daemon_main
 from ospd.network import target_str_to_list
 from ospd.resultlist import ResultList
 
-from ospd_wrapper import __version__
+from ospd_example_scanner import __version__
 
 logger = logging.getLogger(__name__)
 
 
 OSPD_DESC = """
-This is an ospd wrapper template, which simulates a communication with a client,
+This is an OSP example scanner useful as a starting point for writing an OSP
+server implementation, which simulates a communication with a client,
 generates example results, set hosts as 'started' and 'finished', calculates the
 scan progress and finished the scan simulation.
 """
@@ -58,12 +59,12 @@ OSPD_PARAMS = {
 }
 
 
-class OSPDwrapper(OSPDaemon):
+class OSPDExampleScanner(OSPDaemon):
 
-    """ Class for ospd-wrapper daemon. """
+    """ Class for ospd-example-scanner daemon. """
 
     def __init__(self, *, niceness=None, lock_file_dir='/tmp/', **kwargs):
-        """ Initializes the ospd-wrapper daemon's"""
+        """ Initializes the ospd-example-scanner daemon's"""
 
         super().__init__(
             storage=dict,
@@ -74,8 +75,8 @@ class OSPDwrapper(OSPDaemon):
         self.server_version = __version__
         self._niceness = str(niceness)
 
-        self.daemon_info['name'] = 'OSPd Wrapper'
-        self.scanner_info['name'] = 'ospd-wrapper'
+        self.daemon_info['name'] = 'OSPd example scanner'
+        self.scanner_info['name'] = 'ospd-example-scanner'
         self.scanner_info['version'] = ''  # achieved during self.init()
         self.scanner_info['description'] = OSPD_DESC
 
@@ -103,7 +104,7 @@ class OSPDwrapper(OSPDaemon):
         """This method is called periodically to run tasks."""
 
     def check(self) -> bool:
-        """Checks that the wrapper command line tool is found and
+        """Checks that the scanner command line tool is found and
         is executable."""
         return True
 
@@ -292,8 +293,8 @@ class OSPDwrapper(OSPDaemon):
 
 
 def main():
-    """ OSP wrapper main function. """
-    daemon_main('OSPD - wrapper', OSPDwrapper)
+    """ OSP example-scanner main function. """
+    daemon_main('OSPD - example-scanner', OSPDExampleScanner)
 
 
 if __name__ == '__main__':

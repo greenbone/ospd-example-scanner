@@ -2,9 +2,9 @@
 requires = ["setuptools", "wheel"]
 
 [tool.poetry]
-name = "ospd-wrapper-template"
+name = "ospd-example-scanner"
 version = "21.4.0.dev1"
-description = "ospd based wrapper template"
+description = "ospd based example scanner"
 authors = ["Greenbone Networks GmbH <info@greenbone.net>"]
 license = "AGPL-3.0-or-later"
 readme = "README.md"
@@ -25,7 +25,7 @@ keywords = [
 ]
 
 packages = [
-  { include = "ospd_wrapper"},
+  { include = "ospd_example_scanner"},
   { include = "tests", format = "sdist" },
   { include = "CHANGELOG.md", format = "sdist"},
   { include = "COPYING", format = "sdist"},
@@ -49,7 +49,7 @@ pontos = "^0.3.0"
 
 
 [tool.poetry.scripts]
-ospd-wrapper = "ospd_wrapper.daemon:main"
+ospd-example-scanner = "ospd_example_scanner.daemon:main"
 
 [tool.black]
 line-length = 80
@@ -75,4 +75,4 @@ mode = "poetry"
 pre-commit = ['autohooks.plugins.black']
 
 [tool.pontos.version]
-version-module-file = "ospd_wrapper/__version__.py"
+version-module-file = "ospd_example_scanner/__version__.py"

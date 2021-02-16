@@ -19,10 +19,10 @@
 
 from setuptools import setup, find_packages
 
-from ospd_wrapper import __version__
+from ospd_example_scanner import __version__
 
 setup(
-    name='ospd-wrapper',
+    name='ospd-example-scanner',
     version=__version__,
     packages=find_packages(exclude=['tests*']),
     author='Greenbone Networks GmbH',
@@ -49,6 +49,10 @@ setup(
     install_requires=[
         'ospd>=21.4.0.dev1',
     ],
-    entry_points={'console_scripts': ['ospd-wrapper=ospd_wrapper.daemon:main']},
+    entry_points={
+        'console_scripts': [
+            'ospd-example-scanner=ospd_example_scanner.daemon:main'
+        ]
+    },
     test_suite="tests",
 )
