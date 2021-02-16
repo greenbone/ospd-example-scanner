@@ -75,7 +75,7 @@ class OSPDwrapper(OSPDaemon):
         self._niceness = str(niceness)
 
         self.daemon_info['name'] = 'OSPd Wrapper'
-        self.scanner_info['name'] = 'openvas'
+        self.scanner_info['name'] = 'ospd-wrapper'
         self.scanner_info['version'] = ''  # achieved during self.init()
         self.scanner_info['description'] = OSPD_DESC
 

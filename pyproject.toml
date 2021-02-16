@@ -49,7 +49,7 @@ pontos = "^0.3.0"
 
 
 [tool.poetry.scripts]
-ospd-openvas = "ospd_wrapper.daemon:main"
+ospd-wrapper = "ospd_wrapper.daemon:main"
 
 [tool.black]
 line-length = 80
