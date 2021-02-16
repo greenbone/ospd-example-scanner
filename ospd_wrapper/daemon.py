@@ -101,7 +101,6 @@ class OSPDwrapper(OSPDaemon):
 
     def scheduler(self):
         """This method is called periodically to run tasks."""
-        pass
 
     def check(self) -> bool:
         """Checks that the wrapper command line tool is found and
@@ -113,11 +112,10 @@ class OSPDwrapper(OSPDaemon):
     ):
         """Make the necessary to finish the server gracefully, when the
         client stops a scan or something went wrong during the scan."""
-        pass
 
+    @staticmethod
     def target_is_finished(scan_id: str):
         """ This method can be used to check if the server finished"""
-        pass
 
     def exec_scan(self, scan_id: str):
         """ Starts the scanner for scan_id scan. """
@@ -143,7 +141,9 @@ class OSPDwrapper(OSPDaemon):
         ) in credentials.items():
             cred_type = credential.get('type', '')
             username = credential.get('username', '')
-            password = credential.get('password', '')
+            password = credential.get(
+                'password', ''
+            )  # pylint: disable=unused-variable
             logger.info(
                 "Credential for %s: user: %s, type: %s",
                 service,
@@ -153,7 +153,9 @@ class OSPDwrapper(OSPDaemon):
 
         # Get the plugin list and its preferences, if the scanner
         # supports plugins
-        nvts = self.scan_collection.get_vts(scan_id)
+        nvts = self.scan_collection.get_vts(
+            scan_id
+        )  # pylint: disable=unused-variable
 
         # Ospd calculates the scan progress on fly, but it depends on the
         # results. Sometimes, the scanner can be more smart and detect
