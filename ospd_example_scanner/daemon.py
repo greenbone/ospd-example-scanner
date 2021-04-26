@@ -175,7 +175,7 @@ class OSPDExampleScanner(OSPDaemon):
         # Run the scan. This template does not run any scan, but generates
         # a fake result for each host in the  whole target list.
         # Also, it doesn't consider the excluded hosts. If the scanner allows
-        # multiple hosts, you can excute the scanner just once and process
+        # multiple hosts, you can execute the scanner just once and process
         # the results later.
         while host_list:
             # Get a host from the list
@@ -280,7 +280,7 @@ class OSPDExampleScanner(OSPDaemon):
             finished_host.append(current_host)
             self.sort_host_finished(scan_id, finished_host)
 
-            # If you know exacly the host scan progress, you can use the
+            # If you know exactly the host scan progress, you can use the
             # the following methods for a more precise progress calculation.
             host_progress = dict()
             # host_progress[current_host] = 45
