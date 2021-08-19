@@ -1,5 +1,7 @@
 ![Greenbone Logo](https://www.greenbone.net/wp-content/uploads/gb_logo_resilience_horizontal.png)
 
+:warning: This repository is unmaintained and will not get any further changes!
+
 # ospd-example-scanner
 
 This is an OSP example scanner useful as a starting point for writing an OSP server implementation
